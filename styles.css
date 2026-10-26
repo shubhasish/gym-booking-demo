@@ -97,8 +97,6 @@ h1, h2, h3, p { margin: 0; }
 @keyframes pop { from { scale: .2; opacity: 0; } to { scale: 1; opacity: 1; } }
 .view.success > .success-body { z-index: 1; text-align: center; display: grid; justify-items: center; gap: calc(var(--w) * .02); }
 .avatar { position: relative; width: calc(var(--w) * .14); aspect-ratio: 1; }
-.avatar svg { width: 100%; height: 100%; display: block; }
-.tick { position: absolute; right: -4%; bottom: -2%; width: 28%; aspect-ratio: 1; border-radius: 50%; background: #4c9a6b; color: #fff;
-  font-size: calc(var(--w) * .028); display: grid; place-items: center; border: 2px solid #efefef; }
+.avatar img { position: absolute; left: -2%; top: -2%; width: 104%; height: 104%; display: block; }
 .success h1 { font-size: calc(var(--w) * .0535); font-weight: 700; color: #0f2038; letter-spacing: .1px; }
 .view.success > .success-foot { position: absolute; bottom: calc(24px + env(safe-area-inset-bottom)); left: 0; right: 0; text-align: center; color: var(--muted); font-size: 13px; z-index: 1; }
