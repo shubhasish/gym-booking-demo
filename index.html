@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fdeaea">
+  <title>Gym Session Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-live="polite">
+
+    <!-- HOME -->
+    <section class="view" id="view-home" data-view="home">
+      <div class="glow"></div>
+      <h1 class="page-title">Book a session</h1>
+      <div class="card">
+        <div class="row">
+          <div class="thumb">🏋️</div>
+          <div class="grow">
+            <h2>Gym Workout</h2>
+            <p class="muted">90 min</p>
+          </div>
+        </div>
+        <p class="muted small">Pick up the next available slot at the gym near you.</p>
+      </div>
+      <button class="btn primary block" id="btn-book">Book session</button>
+    </section>
+
+    <!-- BOOKING DETAILS -->
+    <section class="view" id="view-booking" data-view="booking" hidden>
+      <div class="glow"></div>
+      <header class="topbar">
+        <h1 id="booking-title">Booking</h1>
+        <button class="icon-btn" id="btn-close" aria-label="Close">✕</button>
+      </header>
+
+      <h2 class="section">Booking details</h2>
+
+      <div class="row top">
+        <div class="thumb">🏋️</div>
+        <div class="grow">
+          <h3>Gym Workout</h3>
+          <p class="muted">90 min</p>
+        </div>
+        <span class="status" id="status">Scheduled</span>
+      </div>
+
+      <div class="row top bordered">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <div class="grow">
+          <h3 id="booking-time">Today</h3>
+          <p class="muted small">Cancellation or modification allowed only before 5 minutes of start time.</p>
+        </div>
+      </div>
+
+      <button class="row bordered link" id="btn-scan-now">
+        <svg class="ico red-ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20h1"/></svg>
+        <div class="grow">
+          <h3>Scan Now</h3>
+          <p class="muted small">Reach at least 15 mins before your session starts.</p>
+        </div>
+        <span class="chev">›</span>
+      </button>
+
+      <div class="row bordered">
+        <div class="thumb dark">G</div>
+        <div class="grow">
+          <h3>Demo Gym</h3>
+          <p class="muted small">Sector 1, City · 4.8 (73) <span class="pill">◆ Direction</span></p>
+        </div>
+        <span class="chev">›</span>
+      </div>
+
+      <h2 class="section">What To Bring</h2>
+      <div class="chips">
+        <div class="chip"><span>📱</span>Mobile Phone</div>
+        <div class="chip"><span>🍶</span>Water Bottle</div>
+        <div class="chip"><span>👟</span>Shoe</div>
+        <div class="chip"><span>🧺</span>Towel</div>
+        <div class="chip"><span>😷</span>Face Mask</div>
+      </div>
+
+      <h2 class="section">Instructions</h2>
+      <ol class="steps">
+        <li>Arrive on time and check in before class.</li>
+        <li>Wear comfortable, breathable clothes and proper shoes (if required).</li>
+        <li>Follow the instructor’s guidance at all times.</li>
+        <li>Warm up before and stretch after your session.</li>
+        <li>Maintain hygiene and keep the area clean.</li>
+        <li>Listen to your body - stop if you feel discomfort.</li>
+        <li>Enjoy your workout and stay consistent!</li>
+      </ol>
+    </section>
+
+    <!-- SCANNER -->
+    <section class="view scan" id="view-scan" data-view="scan" hidden>
+      <button class="icon-btn corner" id="btn-scan-back" aria-label="Back">⌄</button>
+      <div class="scan-head">
+        <svg class="ico big red-ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20h1"/></svg>
+        <h1>Scan QR code</h1>
+      </div>
+
+      <div class="viewfinder">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" hidden></canvas>
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+      </div>
+      <p class="error" id="scan-error" hidden></p>
+
+      <label class="btn outline small-btn">
+        Upload from gallery
+        <input type="file" id="file" accept="image/*" hidden>
+      </label>
+
+      <p class="muted center scan-hint">Scan the QR code with your phone's camera to start your session or get more details!</p>
+
+      <div class="row center-row">
+        <button class="btn primary" id="btn-restart">Scan QR code</button>
+        <button class="btn ghost" id="btn-demo" hidden>Skip (demo)</button>
+      </div>
+    </section>
+
+    <!-- SUCCESS -->
+    <section class="view success" id="view-success" data-view="success" hidden>
+      <div class="rings"><div class="r2"></div><div class="r1"></div></div>
+      <div class="success-body">
+        <div class="avatar">🙂<span class="tick">✓</span></div>
+        <h1>Enjoy your session!</h1>
+        <p class="muted">Booking successful · <span id="success-id"></span></p>
+        <button class="btn primary" id="btn-done">Done</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="vendor/jsQR.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
