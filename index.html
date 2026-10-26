@@ -123,13 +123,28 @@
 
     <!-- SUCCESS -->
     <section class="view success" id="view-success" data-view="success" hidden>
-      <div class="rings"><div class="r2"></div><div class="r1"></div></div>
+      <button class="icon-btn corner" id="btn-done" aria-label="Done">⌄</button>
       <div class="success-body">
-        <div class="avatar">🙂<span class="tick">✓</span></div>
+        <div class="avatar">
+          <div class="rings"><div class="r2"></div><div class="r1"></div></div>
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="50" fill="#ffdcaa"/>
+            <path d="M24 46c-3 22 0 38 8 46h36c8-8 11-24 8-46z" fill="#6b3f26"/>
+            <ellipse cx="50" cy="56" rx="21" ry="25" fill="#f4bf94"/>
+            <path d="M28 50c4-14 14-18 22-18s18 4 22 18c-8-6-14-8-22-8s-14 2-22 8z" fill="#6b3f26"/>
+            <path d="M27 40c0-12 10-22 23-22s23 10 23 22z" fill="#d9782b"/>
+            <path d="M14 42c0-3 4-5 10-5h52c6 0 10 2 10 5 0 5-8 8-36 8s-36-3-36-8z" fill="#e8893a"/>
+            <path d="M39 59c2-3 6-3 8 0" stroke="#4a2a18" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <circle cx="60" cy="59" r="2.6" fill="#4a2a18"/>
+            <path d="M42 71c5 5 12 5 17 0" stroke="#a5493a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <ellipse cx="35" cy="68" rx="4" ry="2.6" fill="#ee9a82" opacity=".6"/>
+            <ellipse cx="65" cy="68" rx="4" ry="2.6" fill="#ee9a82" opacity=".6"/>
+          </svg>
+          <span class="tick">✓</span>
+        </div>
         <h1>Enjoy your session!</h1>
-        <p class="muted">Booking successful · <span id="success-id"></span></p>
-        <button class="btn primary" id="btn-done">Done</button>
       </div>
+      <p class="success-foot">Booking successful · <span id="success-id"></span></p>
     </section>
 
   </main>
